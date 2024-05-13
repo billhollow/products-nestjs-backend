@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user/entities/user.entity';
 import { DuplicateKeyViolationFilter } from './shared/exceptions/query-failed-error';
 import { APP_FILTER } from '@nestjs/core';
+import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
@@ -22,7 +23,7 @@ import { APP_FILTER } from '@nestjs/core';
       database: 'products-nestjs',
       synchronize: true,
       logging: true,
-    }),
+    }), ProductModule,
   ],
   controllers: [AppController],
   providers: [

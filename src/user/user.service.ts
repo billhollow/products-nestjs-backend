@@ -1,4 +1,5 @@
-import { Injectable } from '@nestjs/common';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
@@ -10,29 +11,36 @@ export class UserService {
 
     constructor(@InjectRepository(User) private readonly userRepository: Repository<User>, ){}
 
-    createUser(userDto: CreateUserDto): Promise<User> {
+    async createUser(userDto: CreateUserDto): Promise<any> {
         const user: User = new User();
         user.username = userDto.username;
         user.email = userDto.email;
         user.password = encodePassword(userDto.password);
-        return this.userRepository.save(user);
+
+        const {password, ...userData} = await this.userRepository.save(user);
+        return userData;
     }
 
     findAllUser(): Promise<User[]> {
-        return this.userRepository.find();
+        return this.userRepository.find({select: ['id', 'username', 'email']});
     }
 
-    viewUser(id: number): Promise<User>{
-        return this.userRepository.findOneBy({id});
+    async viewUser(id: number): Promise<any>{
+        const foundUser = await this.userRepository.findOneBy({id});
+        if (!foundUser) throw new NotFoundException('User not found with sent id');
+
+        const {password, ...userData} = foundUser;
+        return userData;
     }
 
-    updateUser(id: number, userDto: CreateUserDto): Promise<User> {
+    async updateUser(id: number, userDto: CreateUserDto): Promise<any> {
         const user: User = new User();
         user.username = userDto.username;
         user.email = userDto.email;
         user.password = encodePassword(userDto.password);
         user.id = id;
-        return this.userRepository.save(user);
+        const {password, ...userData} = await this.userRepository.save(user);
+        return userData;
     }
 
     removeUser(id: number): Promise<{affected?: number}>{
