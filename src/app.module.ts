@@ -8,6 +8,7 @@ import { User } from './user/entities/user.entity';
 import { DuplicateKeyViolationFilter } from './shared/exceptions/query-failed-error';
 import { APP_FILTER } from '@nestjs/core';
 import { ProductModule } from './product/product.module';
+import { Product } from './product/entities/product.entity';
 
 @Module({
   imports: [
@@ -19,7 +20,7 @@ import { ProductModule } from './product/product.module';
       port: 5432,
       password: 'root',
       username: 'postgres',
-      entities: [User],
+      entities: [User, Product],
       database: 'products-nestjs',
       synchronize: true,
       logging: true,
