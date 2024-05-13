@@ -18,8 +18,6 @@ export class AuthController {
     @Get('status')
     @UseGuards(JwtAuthGuard)
     status(@Req() req: Request) {
-        console.log("Inside controler status ");
-        console.log(req.user);
         return req.user;
     }
 }
