@@ -5,6 +5,8 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user/entities/user.entity';
+import { DuplicateKeyViolationFilter } from './shared/exceptions/query-failed-error';
+import { APP_FILTER } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -23,6 +25,12 @@ import { User } from './user/entities/user.entity';
     }),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_FILTER,
+      useClass: DuplicateKeyViolationFilter,
+    }
+  ],
 })
 export class AppModule {}
