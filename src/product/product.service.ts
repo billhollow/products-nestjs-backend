@@ -15,7 +15,7 @@ export class ProductService {
     }
 
     findAllProduct(): Promise<Product []> {
-        return this.productRepository.find();
+        return this.productRepository.find({order: {id: 'ASC'}});
     }
 
     viewProduct(id: number): Promise<Product> {

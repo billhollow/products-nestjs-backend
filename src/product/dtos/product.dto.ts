@@ -2,6 +2,10 @@ import { PartialType } from '@nestjs/mapped-types';
 import { IsInt, IsOptional, IsString, MinLength, IsNotEmpty, IsNumber, Min } from 'class-validator';
 
 export class CreateProductDto {
+
+  @IsString()
+  handle: string;
+
   @IsString()
   @MinLength(2, { message: '"title" must have atleast 2 characters.' })
   @IsNotEmpty()

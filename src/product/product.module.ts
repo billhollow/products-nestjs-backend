@@ -3,12 +3,13 @@ import { ProductController } from './product.controller';
 import { ProductService } from './product.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Product } from './entities/product.entity';
+import { BulkloadProductExcelService } from './bulkload/excel-to-objects';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([Product])
   ],
   controllers: [ProductController],
-  providers: [ProductService]
+  providers: [ProductService, BulkloadProductExcelService]
 })
 export class ProductModule {}

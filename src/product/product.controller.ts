@@ -1,14 +1,19 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UploadedFile, UseGuards, UseInterceptors, UsePipes, ValidationPipe } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { CreateProductDto, UpdateProductDto } from './dtos/product.dto';
 import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { BulkloadProductExcelService } from './bulkload/excel-to-objects';
 
 @Controller('product')
 @UsePipes(new ValidationPipe())
 @UseGuards(JwtAuthGuard)
 export class ProductController {
 
-    constructor(private readonly productService: ProductService){}
+    constructor(
+        private readonly productService: ProductService, 
+        private readonly bulkloadProductExcelService: BulkloadProductExcelService,
+    ){}
 
     @Post()
     create(@Body() productDto: CreateProductDto) {
@@ -33,5 +38,13 @@ export class ProductController {
     @Delete(':id')
     remove(@Param('id') id: string) {
         return this.productService.removeProduct(+id);
+    }
+
+    @Post('bulkload')
+    @UseInterceptors(FileInterceptor('file'))
+    async bulkload(@UploadedFile() file: Express.Multer.File) {
+        const products = await this.bulkloadProductExcelService.convertExcelToProducts(file);
+        await this.bulkloadProductExcelService.createProductsMultipleProductDto(products);
+        return {"created_products": products.length};
     }
 }

@@ -1,3 +1,7 @@
+# Custom folders to ignore
+/excel-file-uploads
+
+
 # compiled output
 /dist
 /node_modules

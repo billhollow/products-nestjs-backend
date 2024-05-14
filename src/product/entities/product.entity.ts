@@ -6,10 +6,14 @@ export class Product {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column({unique:true})
+  @Column({ length: 100 })
+  handle: string;
+
   @Column({ length: 100 })
   title: string;
 
-  @Column({ length: 255 })
+  @Column({ length: 2000 })
   description: string;
 
   @Column({ length: 50 })

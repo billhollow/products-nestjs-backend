@@ -9,11 +9,13 @@ import { DuplicateKeyViolationFilter } from './shared/exceptions/query-failed-er
 import { APP_FILTER } from '@nestjs/core';
 import { ProductModule } from './product/product.module';
 import { Product } from './product/entities/product.entity';
+import { MulterModule } from '@nestjs/platform-express';
 
 @Module({
   imports: [
     AuthModule, 
     UserModule, 
+    ProductModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -24,7 +26,13 @@ import { Product } from './product/entities/product.entity';
       database: 'products-nestjs',
       synchronize: true,
       logging: true,
-    }), ProductModule,
+    }),
+    MulterModule.register({
+      dest: './excel-file-uploads', // Destination folder for storing uploaded files
+      limits: {
+        fileSize: 1024 * 1024 * 5, // Maximum file size (in bytes), here set to 5MB
+      },
+    }),
   ],
   controllers: [AppController],
   providers: [
