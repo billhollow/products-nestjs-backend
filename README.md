@@ -1,3 +1,4 @@
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
@@ -26,6 +27,8 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+# Tecnical test - Products
+
 ## Installation
 
 ```bash
@@ -45,6 +48,32 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Configuration
+
+### Environment Variables (.env)
+
+1. Create a `.env` file in the root directory of your project.
+2. Add the following environment variables to the `.env` file:
+
+DB_HOST=localhost  
+DB_PORT=5432  
+DB_USER=myuser  
+DB_PASS=mypassword  
+DB_NAME=mydbname  
+
+3. Replace the values with your actual database connection details.
+
+Example
+Here's an example of how your .env file might look:
+
+
+DB_HOST=localhost  
+DB_PORT=5432  
+DB_USER=postgres  
+DB_PASS=root  
+DB_NAME=products-nestjs     
+
+  
 ## Test
 
 ```bash
