@@ -1,3 +1,4 @@
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
@@ -26,6 +27,8 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+# Tecnical test - Products
+
 ## Installation
 
 ```bash
@@ -45,6 +48,41 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Configuration
+
+### Environment Variables (.env)
+
+1. Create a `.env` file in the root directory of your project.
+2. Add the following environment variables to the `.env` file:
+
+DB_HOST=localhost  
+DB_PORT=5432  
+DB_USER=myuser  
+DB_PASS=mypassword  
+DB_NAME=mydbname  
+
+3. Replace the values with your actual database connection details.
+
+Example
+Here's an example of how your .env file might look:
+
+
+DB_HOST=localhost  
+DB_PORT=5432  
+DB_USER=postgres  
+DB_PASS=root  
+DB_NAME=products-nestjs     
+
+## Bulkload products
+1. Register a user in the application and generate a valid token.
+2. Navigate to the following URL in your browser: `http://localhost:3322/product/bulkload/`.
+3. In the request header, add the Authorization Bearer TOKEN, replacing TOKEN with the generated token.
+4. Set the request method to POST and the request body to form-data.
+5. Add a 'file' field to the form-data section, and select the 'Productos prueba técnica.xlsx' file as the value for the field.
+6. Send the request to initiate the bulk loading process.
+
+You can see more details in postman 'Products-nestjs-backend-v1.postman_collection.json' file.  
+  
 ## Test
 
 ```bash
