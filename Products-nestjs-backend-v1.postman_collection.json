@@ -1,0 +1,481 @@
+{
+	"info": {
+		"_postman_id": "f5ec326b-c3b6-429f-b82a-85a356f408d2",
+		"name": "Products-nestjs-backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14741897"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"piero2\",\r\n    \"password\": \"Root_123%\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3322/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3322",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "status",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzcsInVzZXJuYW1lIjoicGllcm8xIiwiZW1haWwiOiJwaWVyOTgwNkBnbWFpbC5jb20iLCJpYXQiOjE3MTU2MTc4MjgsImV4cCI6MTcxNTYyMTQyOH0.yJzt1eZPPo3xs8GGkojpicfCpLuuo3-JUzrl3iG0pek"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"piero\",\r\n    \"password\": \"pass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3322/auth/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3322",
+							"path": [
+								"auth",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODEsInVzZXJuYW1lIjoicGllcm8yIiwiZW1haWwiOiJwaWVyOTgwNjJAZ21haWwuY29tIiwiaWF0IjoxNzE1ODY5OTQ4LCJleHAiOjE3MTU5NTYzNDh9.TnO8BDRNhxKWSTuFchB-YK5ZYUAmG_h-fiWlcDhhkPo"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"piero\",\r\n    \"password\": \"pass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3322/user/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3322",
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "view",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODEsInVzZXJuYW1lIjoicGllcm8yIiwiZW1haWwiOiJwaWVyOTgwNjJAZ21haWwuY29tIiwiaWF0IjoxNzE1ODY5OTQ4LCJleHAiOjE3MTU5NTYzNDh9.TnO8BDRNhxKWSTuFchB-YK5ZYUAmG_h-fiWlcDhhkPo"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"piero\",\r\n    \"password\": \"pass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3322/user/79/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3322",
+							"path": [
+								"user",
+								"79",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJwaWVybyIsImlhdCI6MTcxNTU2MjM3NiwiZXhwIjoxNzE1NTY1OTc2fQ.dDrwsKQxG0-FOtmbr_DGHBDrPQ1wjq9m87dGin_iQeU"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"piero2\",\r\n    \"email\": \"pier98062@gmail.com\",\r\n    \"password\": \"Root_123%\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3322/user/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3322",
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJwaWVybyIsImlhdCI6MTcxNTU2MjM3NiwiZXhwIjoxNzE1NTY1OTc2fQ.dDrwsKQxG0-FOtmbr_DGHBDrPQ1wjq9m87dGin_iQeU"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"piero1\",\r\n    \"email\": \"pier9806@gmail.com\",\r\n    \"password\": \"Root_123%1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3322/user/77",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3322",
+							"path": [
+								"user",
+								"77"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJwaWVybyIsImlhdCI6MTcxNTU2MjM3NiwiZXhwIjoxNzE1NTY1OTc2fQ.dDrwsKQxG0-FOtmbr_DGHBDrPQ1wjq9m87dGin_iQeU"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"piero1\",\r\n    \"email\": \"pier9806@gmail.com\",\r\n    \"password\": \"Root_123%1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3322/user/77",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3322",
+							"path": [
+								"user",
+								"77"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODEsInVzZXJuYW1lIjoicGllcm8yIiwiZW1haWwiOiJwaWVyOTgwNjJAZ21haWwuY29tIiwiaWF0IjoxNzE1ODAzMTk1LCJleHAiOjE3MTU4ODk1OTV9.BHiXbtrdzbvc63S7bnq-wqgifdJLQnKoIVyLVmidPO0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"piero\",\r\n    \"password\": \"pass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3322/product/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3322",
+							"path": [
+								"product",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "view",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODEsInVzZXJuYW1lIjoicGllcm8yIiwiZW1haWwiOiJwaWVyOTgwNjJAZ21haWwuY29tIiwiaWF0IjoxNzE1NjMyMDQyLCJleHAiOjE3MTU2MzU2NDJ9.CY4Yc5v8qKiBXU4uxGfoMq3l8MbaewGJvkGnbn2cSSg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"piero\",\r\n    \"password\": \"pass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3322/product/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3322",
+							"path": [
+								"product",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODEsInVzZXJuYW1lIjoicGllcm8yIiwiZW1haWwiOiJwaWVyOTgwNjJAZ21haWwuY29tIiwiaWF0IjoxNzE1NzA4MzA4LCJleHAiOjE3MTU3OTQ3MDh9.Z6gvqDChNehQZeog--8T0sPC6VFscRh8z_Z38mfTETA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"handle\": \"handle\",\r\n    \"title\": \"Product1\",\r\n    \"description\": \"Simple product\",\r\n    \"sku\": \"12312312\",\r\n    \"grams\": 113111.31,\r\n    \"price\": 12,\r\n    \"barcode\": \"passport\",\r\n    \"stock\": 0,\r\n    \"comparePrice\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3322/product/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3322",
+							"path": [
+								"product",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODEsInVzZXJuYW1lIjoicGllcm8yIiwiZW1haWwiOiJwaWVyOTgwNjJAZ21haWwuY29tIiwiaWF0IjoxNzE1NjM2MjEwLCJleHAiOjE3MTU2Mzk4MTB9.Sa_EHodmGSpPFsjIAxFOu3R-wfZnLlIoOsx_HoH85GY"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"dess simple\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3322/product/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3322",
+							"path": [
+								"product",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODEsInVzZXJuYW1lIjoicGllcm8yIiwiZW1haWwiOiJwaWVyOTgwNjJAZ21haWwuY29tIiwiaWF0IjoxNzE1NjM2MjEwLCJleHAiOjE3MTU2Mzk4MTB9.Sa_EHodmGSpPFsjIAxFOu3R-wfZnLlIoOsx_HoH85GY"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"piero1\",\r\n    \"email\": \"pier9806@gmail.com\",\r\n    \"password\": \"Root_123%1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3322/product/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3322",
+							"path": [
+								"product",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bulkload",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODEsInVzZXJuYW1lIjoicGllcm8yIiwiZW1haWwiOiJwaWVyOTgwNjJAZ21haWwuY29tIiwiaWF0IjoxNzE1ODY5OTQ4LCJleHAiOjE3MTU5NTYzNDh9.TnO8BDRNhxKWSTuFchB-YK5ZYUAmG_h-fiWlcDhhkPo"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/D:/personal-projects/nestjs-workspace/products/Productos prueba técnica.xlsx"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3322/product/bulkload/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3322",
+							"path": [
+								"product",
+								"bulkload",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
