@@ -10,20 +10,22 @@ import { APP_FILTER } from '@nestjs/core';
 import { ProductModule } from './product/product.module';
 import { Product } from './product/entities/product.entity';
 import { MulterModule } from '@nestjs/platform-express';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
     AuthModule, 
     UserModule, 
     ProductModule,
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      password: 'root',
-      username: 'postgres',
+      host: process.env.DB_HOST,
+      port: +process.env.DB_PORT,
+      password: process.env.DB_PASS,
+      username: process.env.DB_USER,
       entities: [User, Product],
-      database: 'products-nestjs',
+      database: process.env.DB_NAME,
       synchronize: true,
       logging: true,
     }),
