@@ -1,4 +1,5 @@
 import { PartialType } from '@nestjs/mapped-types';
+import { Transform } from 'class-transformer';
 import { IsInt, IsOptional, IsString, MinLength, IsNotEmpty, IsNumber, Min } from 'class-validator';
 
 export class CreateProductDto {
@@ -14,6 +15,7 @@ export class CreateProductDto {
   @IsString()
   description: string;
 
+  @Transform(value => String(value)) // Convert any incoming value to string
   @IsString()
   sku: string;
   
@@ -33,6 +35,7 @@ export class CreateProductDto {
   @IsOptional()
   comparePrice?: number;
 
+  @Transform(value => String(value)) // Convert any incoming value to string
   @IsString()
   barcode: string;
 }
